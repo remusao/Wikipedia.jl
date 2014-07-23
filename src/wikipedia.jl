@@ -84,7 +84,7 @@ function random(pages=1)
 end
 
 
-function summary(title; sentences=0, chars=0, auto_suggest=True, redirect=True)
+function summary(title; sentences=0, chars=0, auto_suggest=true, redirect=true)
     # use auto_suggest and redirect to get the correct article
     # also, use page's error checking to raise DisambiguationError if necessary
     page_info = page(title, auto_suggest=auto_suggest, redirect=redirect)
@@ -106,9 +106,7 @@ function summary(title; sentences=0, chars=0, auto_suggest=True, redirect=True)
     end
 
     request = wiki_request(query_params)
-    summary = request["query"]["pages"][pageid]["extract"]
-
-    return summary
+    return request["query"]["pages"][string(pageid)]["extract"]
 end
 
 
